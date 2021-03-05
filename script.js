@@ -11,8 +11,7 @@ $(document).ready(function(){
 //pulling the current time
 function timeBlockUpdater() {
     //getting current hour
-    //var currentHour = moment().hour();
-    var currentHour = 11
+     var currentHour = moment().hour();
      console.log("in time block updater",currentHour);
 
     //loop over time blocks to provide color coding 
