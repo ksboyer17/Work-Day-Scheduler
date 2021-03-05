@@ -1,7 +1,3 @@
-//Date at the top of the page
-var currentDay = moment().format('dddd, MMM Do YYYY');
-$("#currentDay").html(currentDay);
-
 //document ready code
 // set click listener
 $(document).ready(function(){
@@ -15,62 +11,38 @@ $(document).ready(function(){
 //pulling the current time
 function timeBlockUpdater() {
     //getting current hour
-    var currentHour = moment().hour();
+    //var currentHour = moment().hour();
+    var currentHour = 11
      console.log("in time block updater",currentHour);
 
-    //loop over time blocks
-    $(".time-block").each(function(){
-        var blockOfTime = parseInt($(this).attr("id").split("hour")[1]);
-    //include functions to change colors for past, present, future
-    if (blockOfTime === currentHour) {
-        $(this).addClass("present");
-        $(this).removeClass("future");
-        $(this).removeClass("past");
+    //loop over time blocks to provide color coding 
+            $(".time-block").each(function() {
+                var blockOfTime = parseInt($(this).attr("id").split("-")[1]);
+                console.log(blockOfTime);
+            //include functions to change colors for past, present, future
+            if (blockOfTime === currentHour) {
+                $(this).addClass("present");
+                $(this).removeClass("future");
+                $(this).removeClass("past");
+            }
+            else if (blockOfTime > currentHour) {
+                $(this).removeClass("present");
+                $(this).addClass("future");
+                $(this).removeClass("past");
+            }
+            else {
+                $(this).removeClass("present");
+                $(this).removeClass("future");
+                $(this).addClass("past");
+                    
+            }
+         })
     }
-    if (blockOfTime > currentHour) {
-        $(this).removeClass("present");
-        $(this).addClass("future");
-        $(this).removeClass("past");
-    }
-    if (blockOfTime < currentHour) {
-        $(this).removeClass("present");
-        $(this).removeClass("future");
-        $(this).addClass("past");
-    }
-    })
-    
 
 
 
-
-
-
-
-
-
-
-
-
-
-}
 //calling function from line 16
- timeBlockUpdater();
-//calling time block function
-//time block functions
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+timeBlockUpdater();
 
 
 //save text information to local storage
@@ -85,8 +57,13 @@ $("#hour-15 .description").val(localStorage.getItem("hour-15"));
 $("#hour-16 .description").val(localStorage.getItem("hour-16"));
 $("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
+
 })
 
+
+//Date on the page
+var currentDay = moment().format('dddd, MMM Do YYYY LT');
+$("#currentDay").html(currentDay);
 
 
 
