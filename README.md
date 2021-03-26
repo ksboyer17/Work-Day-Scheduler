@@ -16,3 +16,6 @@ https://github.com/ksboyer17/Work-Day-Scheduler-
 
 
 ![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+
+**Contact Information**
+ksboyerii@gmail.com
